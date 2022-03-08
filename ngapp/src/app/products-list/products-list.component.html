@@ -1,0 +1,38 @@
+<p>Product List contains 5 products</p>
+<p>Selected product is:</p>
+<table>
+    <tr>
+        <th>
+            &nbsp;
+        </th>
+        <th>
+            Product Code
+        </th>
+        <th>
+            Name
+        </th>
+        <th>
+            Category
+        </th>
+        <th>
+            Price
+        </th>
+    </tr>
+    <tr *ngFor="let product of products; let i = index">
+        <td>
+            {{i + 1}}
+        </td>
+        <td>
+            {{product.code}}
+        </td>
+        <td>
+            {{product.name}}
+        </td>
+        <td>
+            {{product.category}}
+        </td>
+        <td>
+            {{product.price}}
+        </td>
+    </tr>
+</table>
