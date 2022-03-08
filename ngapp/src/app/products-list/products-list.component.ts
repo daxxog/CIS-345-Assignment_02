@@ -8,6 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProductsListComponent implements OnInit {
     private _productList: Product[]
+    private _selectedProduct: Product
+    private _productIsSelected: boolean = false;
+    private _border: boolean = true;
+
 
     constructor() {
         this._productList = new Array<Product>(
@@ -42,12 +46,40 @@ export class ProductsListComponent implements OnInit {
                 price: 350
             })
         );
+
+        this._selectedProduct = this._productList[0];
     }
 
     // used in:
     // <tr *ngFor="let product of products; let i = index">
+    // and also used to get number of products for top paragraph
     get products(): Product[] {
         return this._productList;
+    }
+
+    get selectedProduct(): Product {
+        return this._selectedProduct;
+    }
+
+    get border(): boolean {
+        return this._border
+    }
+
+    get productIsSelected(): boolean {
+        return this._productIsSelected
+    }
+
+    selectProduct(i: number) {
+        this._selectedProduct = this._productList[i];
+        this._productIsSelected = true;
+    }
+
+    deselectProduct() {
+        this._productIsSelected = false;
+    }
+
+    toggleBorder(): void {
+        this._border = !this._border;
     }
 
     ngOnInit(): void {

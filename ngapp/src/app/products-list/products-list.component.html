@@ -1,5 +1,5 @@
-<p>Product List contains 5 products</p>
-<p>Selected product is:</p>
+<p class="{{ border ? 'border' : '' }}">Product List contains {{ products.length }} products</p>
+<p class="{{ productIsSelected ? 'selected' : '' }}">Selected product is: {{ productIsSelected ? selectedProduct.name : '' }}</p>
 <table>
     <tr>
         <th>
@@ -18,7 +18,7 @@
             Price
         </th>
     </tr>
-    <tr *ngFor="let product of products; let i = index">
+    <tr *ngFor="let product of products; let i = index" class="{{ (i % 2) == 0 ? 'odd' : 'even' }}" (mouseover)="selectProduct(i)" (mouseout)="deselectProduct()">
         <td>
             {{i + 1}}
         </td>
@@ -35,4 +35,5 @@
             {{product.price}}
         </td>
     </tr>
+    <button (click)="toggleBorder()">Toggle Border</button>
 </table>
