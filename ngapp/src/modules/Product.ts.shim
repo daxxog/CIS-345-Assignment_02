@@ -1,0 +1,6 @@
+class Product {
+    code: string;
+    name: string;
+    category: string;
+    price: number;
+}

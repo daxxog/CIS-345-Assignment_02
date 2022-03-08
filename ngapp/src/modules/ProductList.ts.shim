@@ -1,0 +1,3 @@
+class ProductList {
+    productList: Product[]
+}
